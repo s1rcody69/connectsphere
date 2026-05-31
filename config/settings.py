@@ -183,3 +183,6 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.User'
