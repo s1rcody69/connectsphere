@@ -24,6 +24,8 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),
     path('api/profiles/', include('profiles.urls')),
     path('api/posts/', include('posts.urls')),
+    path('api/', include('comments.urls')),
+    path('api/users/', include('profiles.urls')),
 ]
 
 if settings.DEBUG:
