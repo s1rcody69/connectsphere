@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from posts.feed import NewsFeedView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,9 @@ urlpatterns = [
     path('api/posts/', include('posts.urls')),
     path('api/', include('comments.urls')),
     path('api/users/', include('profiles.urls')),
+    path('api/search/', include('search.urls')),
+    path('api/notifications/', include('notifications.urls')),
+    path('api/feed/', NewsFeedView.as_view(), name='news_feed'),
 ]
 
 if settings.DEBUG:
