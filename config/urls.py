@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from posts.feed import NewsFeedView
+from profiles.views import FollowView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,10 +27,10 @@ urlpatterns = [
     path('api/profiles/', include('profiles.urls')),
     path('api/posts/', include('posts.urls')),
     path('api/', include('comments.urls')),
-    path('api/users/', include('profiles.urls')),
     path('api/search/', include('search.urls')),
     path('api/notifications/', include('notifications.urls')),
     path('api/feed/', NewsFeedView.as_view(), name='news_feed'),
+    path('api/users/<int:user_id>/follow/', FollowView.as_view(), name='follow_user'),
 ]
 
 if settings.DEBUG:
